@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { EquipamentsService } from './services/equipaments.service';
 import { GetEquipamentsDTO } from './dto/get-equipaments.dto';
 import { CreateEquipamentsDTO } from './dto/create-equipaments.dto';
@@ -12,9 +12,9 @@ export class EquipamentsController {
     return this.equipamentsService.create(equipament);
   }
 
-  @Get()
-  getEquipament(@Body() body: GetEquipamentsDTO) {
-    return this.equipamentsService.getByQrCode(body.qrCode);
+  @Get(":qrCode")
+  getEquipament(@Param() params: GetEquipamentsDTO) {
+    return this.equipamentsService.getByQrCode(params.qrCode);
   }
 
 

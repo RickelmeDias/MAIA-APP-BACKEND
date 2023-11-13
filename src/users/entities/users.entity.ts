@@ -1,5 +1,6 @@
+import { EquipamentsEntity } from 'src/equipaments/entities/equipaments.entity';
 import { Role } from '../../auth/enum/role.enum';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
 export class UsersEntity {
@@ -23,6 +24,9 @@ export class UsersEntity {
 
   @Column("text", { array: true })
   roles: Role[];
+
+  @OneToMany(() => EquipamentsEntity, (equipament) => equipament.reservedByUser)
+  equipaments?: EquipamentsEntity[]
 
   @Column({ default: true })
   isActive?: boolean;

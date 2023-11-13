@@ -1,5 +1,5 @@
 import { UsersEntity } from 'src/users/entities/users.entity';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class EquipamentsEntity {
@@ -18,11 +18,11 @@ export class EquipamentsEntity {
   @Column({ nullable: true })
   imgsrc: string | null
 
-  @Column({ nullable: true })
-  reservedByUser?: UsersEntity | null
-
   @Column()
   createdAt: Date;
+
+  @ManyToOne(() => UsersEntity, (user) => user.equipaments)
+  reservedByUser?: UsersEntity;
 
   @Column({ default: true })
   isActive?: boolean;
