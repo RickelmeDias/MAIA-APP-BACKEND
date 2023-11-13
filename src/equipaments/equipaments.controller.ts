@@ -3,7 +3,7 @@ import { EquipamentsService } from './services/equipaments.service';
 import { GetEquipamentsDTO } from './dto/get-equipaments.dto';
 import { CreateEquipamentsDTO } from './dto/create-equipaments.dto';
 
-@Controller('user')
+@Controller('equipament')
 export class EquipamentsController {
   constructor(private equipamentsService: EquipamentsService) {}
 
