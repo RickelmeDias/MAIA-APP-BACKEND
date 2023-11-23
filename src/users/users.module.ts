@@ -6,9 +6,7 @@ import { PasscryptService } from './services/passcrypt.service';
 import { UsersController } from './users.controller';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([UsersEntity]),
-  ],
+  imports: [TypeOrmModule.forFeature([UsersEntity])],
   controllers: [UsersController],
   providers: [UsersService, PasscryptService],
   exports: [UsersService],

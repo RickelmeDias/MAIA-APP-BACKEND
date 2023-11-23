@@ -5,15 +5,17 @@ import { UsersModule } from './users/users.module';
 import { DatabaseModule } from './db/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
-import { EquipamentsModule } from './equipaments/equipaments.module';
+import { EquipmentsModule } from './equipments/equipments.module';
+import { LogsEquipmentsModule } from './logs-equipments/logs-equipments.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, expandVariables: true }),
     UsersModule,
-    EquipamentsModule,
+    EquipmentsModule,
+    LogsEquipmentsModule,
     DatabaseModule,
-    AuthModule
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

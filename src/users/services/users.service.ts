@@ -15,7 +15,9 @@ export class UsersService {
   ) {}
 
   async create(user: CreateUserDTO): Promise<object> {
-    const raExists = await this.userRepository.exist({ where: { ra: user.ra } })
+    const raExists = await this.userRepository.exist({
+      where: { ra: user.ra },
+    });
 
     if (raExists) {
       throw new HttpException(
@@ -44,8 +46,10 @@ export class UsersService {
   }
 
   async getUserByRa(ra: string): Promise<UsersEntity> {
-    const user: UsersEntity = await this.userRepository.findOne({ where: { ra: ra } })
-    
+    const user: UsersEntity = await this.userRepository.findOne({
+      where: { ra: ra },
+    });
+
     if (!user) {
       throw new HttpException(
         {

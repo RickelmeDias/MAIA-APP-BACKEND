@@ -22,7 +22,13 @@ import { PasscryptService } from 'src/users/services/passcrypt.service';
     }),
     TypeOrmModule.forFeature([UsersEntity]),
   ],
-  providers: [ConfigService, AuthService, LocalStrategy, JwtStrategy, PasscryptService ],
+  providers: [
+    ConfigService,
+    AuthService,
+    LocalStrategy,
+    JwtStrategy,
+    PasscryptService,
+  ],
   exports: [AuthService],
 })
 export class AuthModule {}

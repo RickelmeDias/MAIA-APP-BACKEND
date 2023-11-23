@@ -1,6 +1,7 @@
-import { EquipamentsEntity } from 'src/equipaments/entities/equipaments.entity';
+import { EquipmentsEntity } from 'src/equipments/entities/equipments.entity';
 import { Role } from '../../auth/enum/role.enum';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { LogsEquipmentsEntity } from 'src/logs-equipments/entities/logs-equipments.entity';
 
 @Entity()
 export class UsersEntity {
@@ -22,11 +23,11 @@ export class UsersEntity {
   @Column()
   createdAt: Date;
 
-  @Column("text", { array: true })
+  @Column('text', { array: true })
   roles: Role[];
 
-  @OneToMany(() => EquipamentsEntity, (equipament) => equipament.reservedByUser)
-  equipaments?: EquipamentsEntity[]
+  @OneToMany(() => EquipmentsEntity, (equipment) => equipment.reservedByUser)
+  equipments?: EquipmentsEntity[];
 
   @Column({ default: true })
   isActive?: boolean;

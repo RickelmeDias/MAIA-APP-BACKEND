@@ -1,19 +1,17 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateUserDTO {
+export class CreateEquipmentsDTO {
   @IsNotEmpty()
   @IsString()
-  ra: string;
-
-  @IsNotEmpty()
-  @IsString()
-  password: string;
+  qrCode: string;
 
   @IsNotEmpty()
   @IsString()
   name: string;
 
-  @IsNotEmpty()
   @IsString()
-  team: string;
+  imgsrc: string;
+
+  @IsString()
+  description: string;
 }

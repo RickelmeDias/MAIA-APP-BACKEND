@@ -13,27 +13,13 @@ export class AppController {
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   async login(@Request() req) {
-    console.log(req.user)
+    console.log(req.user);
     return this.authService.login(req.user);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get('profile')
+  @UseGuards(JwtAuthGuard)
   getProfile(@Request() req) {
-    return req.user;
-  }
-
-  @HasRoles(Role.Admin)
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Get('admin')
-  onlyAdmin(@Request() req) {
-    return req.user;
-  }
-
-  @HasRoles(Role.User)
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Get('user')
-  onlyUser(@Request() req) {
     return req.user;
   }
 }

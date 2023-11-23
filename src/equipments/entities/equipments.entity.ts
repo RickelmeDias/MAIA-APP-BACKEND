@@ -2,7 +2,7 @@ import { UsersEntity } from 'src/users/entities/users.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
-export class EquipamentsEntity {
+export class EquipmentsEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -16,12 +16,12 @@ export class EquipamentsEntity {
   description: string | null;
 
   @Column({ nullable: true })
-  imgsrc: string | null
+  imgsrc: string | null;
 
   @Column()
   createdAt: Date;
 
-  @ManyToOne(() => UsersEntity, (user) => user.equipaments)
+  @ManyToOne(() => UsersEntity, (user) => user.equipments)
   reservedByUser?: UsersEntity;
 
   @Column({ default: true })
